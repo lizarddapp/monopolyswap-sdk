@@ -8,7 +8,7 @@ import { Percent } from './Percent'
 import { Price } from './Price'
 import { Route } from './Route'
 import { Token } from './Token'
-import { TradeType } from '../enums'
+import { TradeType } from '../enums/TradeType'
 import { computePriceImpact } from '../functions/computePriceImpact'
 import invariant from 'tiny-invariant'
 import { sortedInsert } from '../functions/sortedInsert'
@@ -203,8 +203,9 @@ export class Trade<TInput extends Currency, TOutput extends Currency, TTradeType
     if (this.tradeType === TradeType.EXACT_INPUT) {
       return this.inputAmount
     } else {
-      const slippageAdjustedAmountIn = new Fraction(ONE).add(slippageTolerance).multiply(this.inputAmount.quotient)
-        .quotient
+      const slippageAdjustedAmountIn = new Fraction(ONE)
+        .add(slippageTolerance)
+        .multiply(this.inputAmount.quotient).quotient
       return CurrencyAmount.fromRawAmount(this.inputAmount.currency, slippageAdjustedAmountIn)
     }
   }
@@ -277,7 +278,7 @@ export class Trade<TInput extends Currency, TOutput extends Currency, TTradeType
           currencyOut,
           {
             maxNumResults,
-            maxHops: maxHops - 1
+            maxHops: maxHops - 1,
           },
           [...currentPairs, pair],
           amountOut,
@@ -371,7 +372,7 @@ export class Trade<TInput extends Currency, TOutput extends Currency, TTradeType
           currencyAmountOut,
           {
             maxNumResults,
-            maxHops: maxHops - 1
+            maxHops: maxHops - 1,
           },
           [pair, ...currentPairs],
           amountIn,

@@ -2,6 +2,7 @@ import { Currency } from '../entities/Currency'
 import { CurrencyAmount } from '../entities/CurrencyAmount'
 import { Percent } from '../entities/Percent'
 import { Price } from '../entities/Price'
+
 /**
  * Returns the percent difference between the mid price and the execution price, i.e. price impact.
  * @param midPrice mid price before the trade

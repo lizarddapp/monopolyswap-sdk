@@ -5,20 +5,22 @@ import {
   Ether,
   Fantom,
   Fuse,
+  Glmr,
   Harmony,
   Heco,
   Matic,
   Movr,
   Okex,
   Palm,
-  xDai,
   Telos,
+  xDai,
 } from '../entities/Native'
 
 import { ChainId } from '../enums'
+import { NativeMap } from '../types'
 
-export const NATIVE = {
-  [ChainId.MAINNET]: Ether.onChain(ChainId.MAINNET),
+export const NATIVE: NativeMap = {
+  [ChainId.ETHEREUM]: Ether.onChain(ChainId.ETHEREUM),
   [ChainId.ROPSTEN]: Ether.onChain(ChainId.ROPSTEN),
   [ChainId.RINKEBY]: Ether.onChain(ChainId.RINKEBY),
   [ChainId.GÖRLI]: Ether.onChain(ChainId.GÖRLI),
@@ -32,6 +34,7 @@ export const NATIVE = {
   [ChainId.BSC_TESTNET]: Binance.onChain(ChainId.BSC_TESTNET),
   // [ChainId.MOONBEAM_TESTNET]: Currency.GLMR,
   [ChainId.ARBITRUM]: Ether.onChain(ChainId.ARBITRUM),
+  [ChainId.ARBITRUM_TESTNET]: Ether.onChain(ChainId.ARBITRUM_TESTNET),
   [ChainId.AVALANCHE]: Avalanche.onChain(ChainId.AVALANCHE),
   [ChainId.AVALANCHE_TESTNET]: Avalanche.onChain(ChainId.AVALANCHE_TESTNET),
   [ChainId.HECO]: Heco.onChain(ChainId.HECO),
@@ -45,4 +48,5 @@ export const NATIVE = {
   [ChainId.MOONRIVER]: Movr.onChain(ChainId.MOONRIVER),
   [ChainId.FUSE]: Fuse.onChain(ChainId.FUSE),
   [ChainId.TELOS]: Telos.onChain(ChainId.TELOS),
+  [ChainId.MOONBEAM]: Glmr.onChain(ChainId.MOONBEAM),
 }

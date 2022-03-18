@@ -1,5 +1,4 @@
 import { AbstractCurrency } from './AbstractCurrency'
-import { ChainId } from '../enums'
 import { Currency } from './Currency'
 import invariant from 'tiny-invariant'
 import { validateAndParseAddress } from '../functions/validateAndParseAddress'
@@ -8,13 +7,13 @@ import { validateAndParseAddress } from '../functions/validateAndParseAddress'
  * Represents an ERC20 token with a unique address and some metadata.
  */
 export class Token extends AbstractCurrency {
-  public readonly chainId: ChainId
+  public readonly chainId: number
   public readonly address: string
 
   public readonly isNative: false = false
   public readonly isToken: true = true
 
-  public constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string) {
+  public constructor(chainId: number, address: string, decimals: number, symbol?: string, name?: string) {
     super(chainId, decimals, symbol, name)
     this.chainId = chainId
     this.address = validateAndParseAddress(address)
@@ -46,6 +45,13 @@ export class Token extends AbstractCurrency {
   public get wrapped(): Token {
     return this
   }
+
+  /**
+   * Return logo
+   */
+  // public get logo(): string | null {
+  //   return this.chainId in CHAIN_KEY ? `https://raw.githubusercontent.com/sushiswap/logos/main/network/${CHAIN_KEY[this.chainId]}/.jpg` : undefined
+  // }
 }
 
 /**
