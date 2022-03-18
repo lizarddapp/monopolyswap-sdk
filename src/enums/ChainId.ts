@@ -1,5 +1,5 @@
 export enum ChainId {
-  MAINNET = 1,
+  ETHEREUM = 1,
   ROPSTEN = 3,
   RINKEBY = 4,
   GÖRLI = 5,
@@ -28,4 +28,6 @@ export enum ChainId {
   MOONRIVER = 1285,
   FUSE = 122,
   TELOS = 40,
+  HARDHAT = 31337,
+  MOONBEAM = 1284,
 }
