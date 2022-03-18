@@ -1,7 +1,7 @@
 {
   "name": "@monopolyswap/sdk",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "🛠 An SDK for building applications on top of MonopolySwap.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
